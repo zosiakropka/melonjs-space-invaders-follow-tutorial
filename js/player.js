@@ -6,5 +6,24 @@ game.Player = me.Sprite.extend({
       me.game.viewport.height - image.height - 20,
       { image: image }
     ]);
+
+    this.velx = 450;
+    this.maxX = me.game.viewport.width - this.width;
+  },
+
+  update: function(dt) {
+    this._super(me.Sprite, 'update', [dt]);
+
+    if (me.input.isKeyPressed('left')) {
+      this.pos.x -= this.velx * dt / 1000;
+    }
+
+    if (me.input.isKeyPressed('right')) {
+      this.pos.x += this.velx * dt / 1000;
+    }
+
+    this.pos.x = this.pos.x.clamp(0, this.maxX);
+
+    return true;
   }
 });
