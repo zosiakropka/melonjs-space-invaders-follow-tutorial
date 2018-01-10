@@ -27,6 +27,7 @@ var game = {
 
     // Run on game resources loaded.
     "loaded" : function () {
+        me.pool.register('player', game.Player);
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
         // Start the game.
