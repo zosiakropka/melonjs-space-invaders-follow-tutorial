@@ -28,7 +28,11 @@ game.PlayScreen = me.ScreenObject.extend({
 
     resetIfEnemyTouchesPlayer: function (enemyY) { // in tutorial this method is named "checkIfLoss"
         if (enemyY >= this.player.pos.y) {
-            this.reset();
+            me.state.change(me.state.GAMEOVER);
         }
+    },
+
+    enemiesWereDestroyed: function() {
+        me.state.change(me.state.GAME_END);
     }
 });

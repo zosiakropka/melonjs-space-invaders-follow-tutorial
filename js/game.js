@@ -28,10 +28,14 @@ var game = {
     // Run on game resources loaded.
     "loaded" : function () {
         this.playScreen = new game.PlayScreen();
+        this.winScreen = new game.WinScreen();
+        this.lossScreen = new game.LossScreen();
         me.pool.register('player', game.Player);
         me.pool.register('enemy', game.Enemy);
         me.pool.register('laser', game.Laser);
         me.state.set(me.state.PLAY, this.playScreen);
+        me.state.set(me.state.GAME_END, this.winScreen);
+        me.state.set(me.state.GAMEOVER, this.lossScreen);
 
         // Start the game.
         me.state.change(me.state.PLAY);

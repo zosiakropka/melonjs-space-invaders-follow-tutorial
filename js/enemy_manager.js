@@ -52,7 +52,9 @@ game.EnemyManager = me.Container.extend({
 
   update: function (time) {
     if (this.children.length === 0 && this.enemiesWereCreated) {
-      game.playScreen.reset();
+      if (game.playScreen.enemiesWereDestroyed) {
+        game.playScreen.enemiesWereDestroyed();
+      }
     }
     this._super(me.Container, 'update', [time]);
     this.updateChildBounds();
