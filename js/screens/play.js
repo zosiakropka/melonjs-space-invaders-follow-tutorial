@@ -12,6 +12,7 @@ game.PlayScreen = me.ScreenObject.extend({
 
         me.input.bindKey(me.input.KEY.LEFT, 'left');
         me.input.bindKey(me.input.KEY.RIGHT, 'right');
+        me.input.bindKey(me.input.KEY.SPACE, 'shoot', true); // true to only shoot once per press
     },
 
     /**
@@ -20,5 +21,6 @@ game.PlayScreen = me.ScreenObject.extend({
     onDestroyEvent: function() {
         me.input.unbindKey(me.input.KEY.LEFT);
         me.input.unbindKey(me.input.KEY.RIGHT);
+        me.input.unbindKey(me.input.KEY.SPACE);
     }
 });

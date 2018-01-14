@@ -29,6 +29,7 @@ var game = {
     "loaded" : function () {
         me.pool.register('player', game.Player);
         me.pool.register('enemy', game.Enemy);
+        me.pool.register('laser', game.Laser);
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
         // Start the game.
