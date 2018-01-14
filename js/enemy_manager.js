@@ -18,5 +18,16 @@ game.EnemyManager = me.Container.extend({
       }
     }
     this.updateChildBounds();
+  },
+
+  onActivateEvent: function () {
+    var self = this;
+    this._timer = me.timer.setInterval(function () {
+        self.pos.x += self.vel;
+    }, 1000);
+  },
+
+  onDeactivateEvent: function () {
+    me.timer.clearInterval(this._timer);
   }
 })
