@@ -40,6 +40,8 @@ game.EnemyManager = me.Container.extend({
         } else {
           self.pos.x += self.vel; // move by `vel` points - either left or right
         }
+
+        game.playScreen.resetIfEnemyTouchesPlayer(bounds.bottom);
     }, 1000); // each second
   },
 
